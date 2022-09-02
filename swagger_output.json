@@ -1,0 +1,510 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:7300",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_name": {
+                  "example": "any"
+                },
+                "user_firstname": {
+                  "example": "any"
+                },
+                "user_surname": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "update_by": {
+                  "example": "any"
+                },
+                "update_at": {
+                  "example": "any"
+                },
+                "organize_id": {
+                  "example": "any"
+                },
+                "role": {
+                  "example": "any"
+                },
+                "product": {
+                  "example": "any"
+                },
+                "customer": {
+                  "example": "any"
+                },
+                "Company_name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "user_password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/customer/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customer_firstname": {
+                  "example": "any"
+                },
+                "customer_lastname": {
+                  "example": "any"
+                },
+                "customer_phone": {
+                  "example": "any"
+                },
+                "customer_sex": {
+                  "example": "any"
+                },
+                "customer_type": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customer/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/customer/getallbyorganize/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/event/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Event_name": {
+                  "example": "any"
+                },
+                "Location": {
+                  "example": "any"
+                },
+                "Startdate": {
+                  "example": "any"
+                },
+                "Enddate": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/event/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/organize/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organize_name": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "updated_by": {
+                  "example": "any"
+                },
+                "updated_at": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/organize/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/organize/getallByorganize/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/product/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_type": {
+                  "example": "any"
+                },
+                "product_name": {
+                  "example": "any"
+                },
+                "product_price": {
+                  "example": "any"
+                },
+                "product_cost": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                },
+                "product_group": {
+                  "example": "any"
+                },
+                "product_amount": {
+                  "example": "any"
+                },
+                "supplies_id": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "updated_by": {
+                  "example": "any"
+                },
+                "updated_at": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/product/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/supplier/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Supplier_Name": {
+                  "example": "any"
+                },
+                "Adress": {
+                  "example": "any"
+                },
+                "Email": {
+                  "example": "any"
+                },
+                "Phone": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "updated_by": {
+                  "example": "any"
+                },
+                "updated_at": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/supplier/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/typeofproduct/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type_name": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "updated_by": {
+                  "example": "any"
+                },
+                "updated_at": {
+                  "example": "any"
+                },
+                "company_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/typeofproduct/getall/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
