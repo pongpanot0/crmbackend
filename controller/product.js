@@ -13,6 +13,7 @@ exports.createproduct = async (req, res) => {
   let created_at = req.body.created_at;
   let updated_by = req.body.updated_by;
   let updated_at = req.body.updated_at;
+  console.log(req.body)
   const create = `insert into product (product_type,product_name,product_price,product_cost,company_id,product_group,product_amount,supplies_id,created_by,created_at,updated_by,updated_at) values('${product_type}','${product_name}','${product_price}','${product_cost}','${company_id}','${product_group}','${product_amount}','${supplies_id}','${created_by}','${created_at}','${updated_by}','${updated_at}')`;
   db.query(create, (err, result) => {
     if (err) {

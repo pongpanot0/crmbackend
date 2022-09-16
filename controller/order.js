@@ -5,12 +5,12 @@ moment.locale("th");
 exports.creatOrder = async (req, res) => {
   let order_name = req.body.order_name;
   let order_detail = req.body.order_detail;
-  let company_id = 1;
-  let organize_id = 1;
+  let company_id = req.body.company_id;
+  let organize_id = req.body.organize_id;
   let order_timeline = 1;
-  let created_by = 1;
+  let created_by = req.body.created_by;
   let created_at = moment(new Date()).format("DD/MM/YYYY HH:mm");
-  let updated_by = 1;
+  let updated_by = req.body.updated_by;
   let updated_at = moment(new Date()).format("DD/MM/YYYY HH:mm");
   let create = `insert into orders(order_name,order_detail,company_id,organize_id,order_timeline,created_by,created_at,updated_by,updated_at) value ('${order_name}','${order_detail}','${company_id}','${organize_id}','${order_timeline}','${created_by}','${created_at}','${updated_by}','${updated_at}')`;
   db.query(create, (err, result) => {
@@ -27,7 +27,7 @@ exports.creatOrder = async (req, res) => {
 };
 exports.getorder = async (req, res) => {
   let id = req.params.id;
-  let create = `select * from orders where company_id = ${id}`;
+  let create = `select * from orders where company_id = ${id}  ORDER BY updated_at DESC; `;
   let count1 = `select  count(*) as count1 from orders where company_id = ${id} and order_timeline=1`;
   let count2 = `select  count(*) as count2 from orders where company_id = ${id} and order_timeline=2`;
   let count3 = `select  count(*) as count3 from orders where company_id = ${id} and order_timeline=3`;
@@ -93,7 +93,7 @@ exports.updateOrder = async (req, res) => {
   let orderphase2_pic = req.body.orderphase2_pic;
   let order_id = req.body.order_id;
   let updated_at = moment(new Date()).format("DD/MM/YYYY HH:mm");
-  let create = `update orders set order_timeline=${timeline},updated_at='${updated_at}',updated_by=${updated_by} where order_id =${id}  `;
+  let create = `update orders set order_timeline=${timeline},updated_at='${updated_at}',updated_by=${updated_by} where order_id =${id} `;
   let phase2 = `insert into orderphase2 (organize_id,company_id,created_by2,created_at2,order_id,orderphase2_pic,orderphase2_detail) value ('${organize_id}','${company_id}','${updated_by}','${created_at}','${order_id}','${orderphase2_pic}','${orderphase2_detail}')`;
   let phase3 = `insert into orderphase3 (organize_id,company_id,created_by3,created_at3,order_id,orderphase3_pic,orderphase3_detail) value ('${organize_id}','${company_id}','${updated_by}','${created_at}','${order_id}','${orderphase2_pic}','${orderphase2_detail}')`;
   let phase4 = `insert into orderphase4 (organize_id,company_id,created_by4,created_at4,order_id,orderphase4_pic,orderphase4_detail) value ('${organize_id}','${company_id}','${updated_by}','${created_at}','${order_id}','${orderphase2_pic}','${orderphase2_detail}')`;

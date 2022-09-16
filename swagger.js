@@ -23,6 +23,7 @@ fs.readdirSync("routes").forEach(function (file) {
     "./routes/" + "product.js",
     "./routes/" + "supplier.js",
     "./routes/" + "typeofproduct.js",
+    "./routes/" + "comment.js",
   ];
 
   swaggerAutogen(outputFile, endpointsFiles, doc);

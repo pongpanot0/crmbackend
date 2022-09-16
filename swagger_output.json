@@ -505,6 +505,42 @@
           }
         }
       }
+    },
+    "/comment/create": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment_title": {
+                  "example": "any"
+                },
+                "order_id": {
+                  "example": "any"
+                },
+                "comment_detail": {
+                  "example": "any"
+                },
+                "created_at": {
+                  "example": "any"
+                },
+                "created_by": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   }
 }

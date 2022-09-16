@@ -4,14 +4,26 @@ var app = express();
 var fs = require("fs");
 var multer = require("multer");
 require("dotenv").config();
-var upload = multer();
 app.use(bodyParser.json());
 const cors = require("cors");
 app.use(cors({ origin: "*" }));
 const db = require("./db/db");
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger_output.json");
+const path = require("path");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./pdf");
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
 
+const upload = multer({ storage: storage });
 app.use(function (req, res, next) {
   next();
 });
@@ -29,8 +41,8 @@ fs.readdirSync("routes").forEach(function (file) {
   require("./routes/" + routeName)(app);
 });
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
-console.log(process.env.db_host);
-console.log(process.env.db_database);
+
+
 app.listen(7300, () => {
   console.log("server start ");
 });
