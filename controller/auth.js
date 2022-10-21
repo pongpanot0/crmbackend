@@ -1,14 +1,14 @@
 const db = require("../db/db");
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 exports.register = async (req, res) => {
   let user_name = req.body.user_name;
   let user_firstname = req.body.user_firstname;
   let user_surname = req.body.user_surname;
   let created_by = req.body.created_by;
-  let created_at = req.body.created_at;
+  let created_at =  moment(new Date()).format("YYYY-MM-DD HH:mm");
   let update_by = req.body.update_by;
-  let update_at = req.body.update_at;
+  let update_at =  moment(new Date()).format("YYYY-MM-DD HH:mm");
   let organize_id = req.body.organize_id;
   let role = req.body.role;
   let product = req.body.product;
@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
   db.query(
     `select * from users  WHERE user_name = '${user_name}' and inactive = 0`,
     async (err, result) => {
-      console.log(result)
+      console.log(result);
       if (err) {
         res.send({
           status: 400,

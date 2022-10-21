@@ -4,9 +4,9 @@ exports.createorganize = async (req, res) => {
   let organize_name = req.body.organize_name;
   let company_id = req.body.company_id;
   let created_by = req.body.created_by;
-  let created_at = req.body.created_at;
+  let created_at =  moment(new Date()).format("YYYY-MM-DD HH:mm");
   let updated_by = req.body.updated_by;
-  let updated_at = req.body.updated_at;
+  let updated_at =  moment(new Date()).format("YYYY-MM-DD HH:mm");
   let create = `insert into organize (organize_name,company_id,created_by,created_at,updated_by,updated_at)  value('${organize_name}','${company_id}','${created_by}','${created_at}','${updated_by}','${updated_at}') `
   db.query(create,(err,result)=>{
     if(err){
